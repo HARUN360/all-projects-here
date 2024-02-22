@@ -1,12 +1,114 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>typing speed</title>
+    <!-- daisy link -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- gogle font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+        <!-- custom css -->
+        <link rel="stylesheet" href="style/style.css">
 </head>
-<body>
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit delectus eaque repudiandae ut eligendi vero error ipsum? Iure, minus deserunt? Iure ipsam laboriosam beatae ab non rem odit commodi debitis ex illum ipsa porro, dolore aperiam aspernatur ratione autem reprehenderit, dolorum soluta. Ducimus cum recusandae qui, hic rem maiores pariatur nisi, quasi debitis blanditiis, tenetur libero error quibusdam similique corporis soluta quod autem temporibus doloremque aperiam numquam ab quaerat saepe molestias? Nemo delectus aliquam, numquam corrupti tempore magnam, illum earum odio voluptates reiciendis consectetur nisi. Sed amet necessitatibus numquam esse. Eligendi unde, est laudantium quaerat soluta, alias quae, nulla neque molestias assumenda in nisi asperiores. Impedit quia fugit cum iste illo vel eveniet tempora mollitia quidem consequuntur, repudiandae necessitatibus nostrum, expedita labore dolores autem minima unde perspiciatis reiciendis, numquam est ipsum architecto. Architecto consequuntur magni nemo veniam et assumenda, doloribus laudantium ipsa impedit repudiandae atque unde earum eligendi enim dolor ullam odit iure excepturi perferendis temporibus? Iusto, nostrum. Inventore reprehenderit beatae minima sit temporibus, soluta suscipit doloremque officiis atque optio et iste necessitatibus consectetur velit officia labore nulla numquam delectus blanditiis itaque, ea voluptate aperiam libero. Quasi molestias corporis, illo placeat tempore optio, eaque distinctio iusto quidem eius ex dolores.</p>
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti soluta maiores iusto similique, labore est non recusandae necessitatibus provident numquam?</p>
+
+<body class="">
+  
+   <main class=" min-h-screen bg-[#010212] bg-[url(images/background.png)] bg-no-repeat bg-center">
+    <!-- home screen -->
+    <section id="home-screen" class=" text-white min-h-screen flex justify-center   items-center ">
+      <div class="flex flex-col items-center gap-10">
+        <h1 class="text-8xl font-anton uppercase ">Alpha Clash Pro</h1>
+        <p>Unleash Your Keyboard Kung Fu : Press “Enter” to Play</p>
+        <button onclick="play()" class="btn btn-active btn-neutral bg-white text-black">Play Now</button>
+      </div>
+    </section>
+    <!-- playground -->
+    <section id="play-ground" class=" hidden">
+       <div class="flex flex-col items-center gap-24 pt-10"
+           <!-- playground screen here  -->
+          <div class="artboard artboard-horizontal phone-6 border-[14px] border-[#302A41] bg-[#FFFFFFB3] rounded-2xl">
+            <div class="flex justify-center">
+                <p class="bg-[#2F2941] text-[#FFFFFF] rounded-b-md p-2">Don't watch keyboard  while playing...</p>
+            </div>
+            <div class="flex justify-center items-center h-full">
+                <p id="current-alphabet" class="text-black text-9xl font-bold uppercase">Y</p>
+            </div>
+          </div>
+          <!-- playground keyboard -->
+          <div>
+            <div class="flex justify-center gap-1 my-1 w-full">
+                <kbd id="q" class="kbd">q</kbd>
+                <kbd id="w" class="kbd">w</kbd>
+                <kbd id="e" class="kbd">e</kbd>
+                <kbd id="r" class="kbd">r</kbd>
+                <kbd id="t" class="kbd">t</kbd>
+                <kbd id="y" class="kbd">y</kbd>
+                <kbd id="u" class="kbd">u</kbd>
+                <kbd id="i" class="kbd">i</kbd>
+                <kbd id="o" class="kbd">o</kbd>
+                <kbd id="p" class="kbd">p</kbd>
+              </div> 
+              <div class="flex justify-center gap-1 my-1 w-full">
+                <kbd id="a" class="kbd">a</kbd>
+                <kbd id="s" class="kbd">s</kbd>
+                <kbd id="d" class="kbd">d</kbd>
+                <kbd id="f" class="kbd">f</kbd>
+                <kbd id="g" class="kbd">g</kbd>
+                <kbd id="h" class="kbd">h</kbd>
+                <kbd id="j" class="kbd">j</kbd>
+                <kbd id="k" class="kbd">k</kbd>
+                <kbd id="l" class="kbd">l</kbd>
+              </div> 
+              <div class="flex justify-center gap-1 my-1 w-full">
+                <kbd id="z" class="kbd">z</kbd>
+                <kbd id="x" class="kbd">x</kbd>
+                <kbd id="c" class="kbd">c</kbd>
+                <kbd id="v" class="kbd">v</kbd>
+                <kbd id="b" class="kbd">b</kbd>
+                <kbd id="n" class="kbd">n</kbd>
+                <kbd id="m" class="kbd">m</kbd>
+                <kbd id="/" class="kbd">/</kbd>
+              </div>
+          </div>
+          <!-- playground lifeScore -->
+          <div class="flex justify-between w-3/4">
+            <button class="btn bg-[#894189] rounded-full border-none px-8 text-[#FFFFFF]">
+              Life 
+              <img src="images/btn2.png" alt="">
+              <span id="current-life">5</span>
+            </button>
+            <button class="btn bg-[#894189] rounded-full border-none px-8 text-[#FFFFFF]">
+              Score 
+              <img src="images/btn1.png" alt="">
+              <span id="current-score">0</span>
+            </button>
+          </div>
+       </div>
+    </section>
+    <!-- last part -->
+    <section id="score" class=" flex justify-center items-center min-h-screen hidden">
+       <div class="text-white text-center space-y-8 bg-[#FFFFFF33] p-6 rounded-xl">
+         <h1 class="text-8xl">
+            <span class="font-extrabold">Score:</span>
+            <span id="last-score">14</span>
+         </h1>
+         <button onclick="play()" class="btn btn-active btn-neutral bg-white text-black text-2xl">Play Again</button>
+         <p>Practice will make you Pro</p>
+       </div>
+    </section>
+   </main>
+
+   <script src="js/utility.js"></script>
+   <script src="js/gamse.js"></script>
 </body>
+
 </html>
+
+<!-- chome link:  obsolete-book.surge.sh -->
